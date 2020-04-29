@@ -20,7 +20,6 @@ pipeline {
 
     stage('Run docker') {
       steps {
-        sh 'ssh-keyscan -H 'https://hub.docker.com/repository/docker/cofaone/jenkins_hw1 >> ~/.ssh/known_hosts'
         sh '''ssh jenkins@'https://hub.docker.com/repository/docker/cofaone/jenkins_hw1 << EOF
 	sudo docker pull devcvs-srv01:5000/shop2-backend/gateway-api:2-staging
 	cd /etc/shop/docker
