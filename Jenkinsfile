@@ -2,7 +2,7 @@ pipeline {
   agent {
 
     docker {
-      image 'cofaone/jenkins_hw1'
+      image 'cofaone/jenkins_hw1:jenkinshw'
     }
 
   }
