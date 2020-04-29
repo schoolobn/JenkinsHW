@@ -4,10 +4,10 @@ FROM openjdk:8u151-stretch
 RUN apt-get update
 
 # Install maven
-RUN apt-get install maven
+RUN apt-get install -y maven
  
 #Install git
-RUN apt-get install git
+RUN apt-get install -y git
 
 #Clone boxfuse
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello myapp
