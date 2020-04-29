@@ -12,7 +12,7 @@ pipeline {
 	sudo docker pull https://hub.docker.com/repository/docker/cofaone/jenkins_hw1
 	cd /etc/JenkinsHW/docker
 	sudo docker-compose up -
-      }  
-     }
+            }  
+     } 
    }
 }
