@@ -12,10 +12,12 @@ pipeline {
 
     stage('Run docker') {
       steps {
-docker.withRegistry('cofaone/jenkins_hw1', '895a9dbb-e561-4057-8ef7-1e24b915bf1e') {
-    image = docker.image('cofaone/jenkins_hw1:jenkinshw')
-    image.pull()
-}
+       script {
+        docker.withRegistry('cofaone/jenkins_hw1', '895a9dbb-e561-4057-8ef7-1e24b915bf1e') {
+        image = docker.image('cofaone/jenkins_hw1:jenkinshw')
+        image.pull()
+        }
+        }
             }
     }
   }
