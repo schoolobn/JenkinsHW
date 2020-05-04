@@ -10,7 +10,7 @@ pipeline {
 
   stages {
 
-    stage('Run docker') {
+    stage('Clone docker image') {
       steps {
        script {
         docker.withRegistry('https://registry.hub.docker.com', '895a9dbb-e561-4057-8ef7-1e24b915bf1e') {
@@ -20,6 +20,18 @@ pipeline {
        }
       } 
     }
+    stage('Clone boxfuse image from github'){
+      steps{
+      checkout([$class: 'GitSCM', 
+      branches: [[name: '*/master']], 
+      doGenerateSubmoduleConfigurations: false, 
+      extensions: [[$class: 'RelativeTargetDirectory', 
+          relativeTargetDir: 'myapp']], 
+      submoduleCfg: [], 
+      userRemoteConfigs: [[url: 'https://github.com/schoolobn/JenkinsHW.git']]])
+      }
+    }
+
   }
 
 }
