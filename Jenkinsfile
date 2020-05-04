@@ -26,22 +26,12 @@ pipeline {
     }
     stage('Git') {
       steps{
-      checkout([$class: 'GitSCM', 
-      branches: [[name: '*/master']], 
-      doGenerateSubmoduleConfigurations: false, 
-      extensions: [[$class: 'RelativeTargetDirectory', 
-          relativeTargetDir: 'myapp']], 
-      submoduleCfg: [], 
-      userRemoteConfigs: [[url: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git']]])
+       git url: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello' 
       }
     }
-
-  stage('Build') {
+    stage('Build') {
     steps{
-      sh '''
-        cd myapp
-        mvn package
-        '''
+      sh 'mvn package'
       script {
           docker.build registry + ":$BUILD_NUMBER"
        }
