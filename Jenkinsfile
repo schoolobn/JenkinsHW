@@ -34,10 +34,9 @@ pipeline {
       sh '''
       cd /var/lib/jenkins/workspace/New
       mvn package
+      docker build -t cofaone/jenkins_hw1:jenkinshw .
       '''
-      script {
-          docker.build registry + ":$BUILD_NUMBER"
-       }
+
      }
    }
    stage('Deploy') {
