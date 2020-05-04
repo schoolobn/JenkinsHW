@@ -23,7 +23,7 @@ pipeline {
     stage('Git'){
       steps{
       checkout([$class: 'GitSCM', 
-      branches: [[name: '*/test']], 
+      branches: [[name: '*/master']], 
       doGenerateSubmoduleConfigurations: false, 
       extensions: [[$class: 'RelativeTargetDirectory', 
           relativeTargetDir: 'myapp']], 
