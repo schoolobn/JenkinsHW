@@ -32,7 +32,6 @@ pipeline {
     stage('Build') {
     steps{
       sh '''
-      cd /var/lib/jenkins/workspace/New
       mvn package
       '''
       script {
