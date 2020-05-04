@@ -17,14 +17,14 @@ pipeline {
     stage('Clone docker image') {
       steps {
        script {
-        docker.withRegistry('https://registry.hub.docker.com', '895a9dbb-e561-4057-8ef7-1e24b915bf1e') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
         image = docker.image('cofaone/jenkins_hw1:jenkinshw')
         image.pull()
         }
        }
       } 
     }
-    stage('Git'){
+    stage('Git') {
       steps{
       checkout([$class: 'GitSCM', 
       branches: [[name: '*/master']], 
@@ -36,7 +36,7 @@ pipeline {
       }
     }
 
-  stage('Build'){
+  stage('Build') {
     steps{
       sh '''
         cd myapp
