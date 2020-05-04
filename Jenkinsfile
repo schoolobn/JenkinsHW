@@ -28,7 +28,7 @@ pipeline {
       extensions: [[$class: 'RelativeTargetDirectory', 
           relativeTargetDir: 'myapp']], 
       submoduleCfg: [], 
-      userRemoteConfigs: [[url: 'https://github.com/schoolobn/JenkinsHW.git']]])
+      userRemoteConfigs: [[url: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git']]])
       }
     }
 
