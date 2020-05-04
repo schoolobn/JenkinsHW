@@ -1,12 +1,12 @@
 pipeline {
   environment {
-    registry = "cofaone/jenkins_myapp"
+    registry = "cofaone/hw"
     registryCredential = 'dockerhub'
 }
   
   agent {
     docker {
-      image 'cofaone/jenkins_hw1:jenkinshw'
+      image 'cofaone/hw:1'
       args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
     }
 
@@ -18,7 +18,7 @@ pipeline {
       steps {
        script {
         docker.withRegistry( '', registryCredential ) {
-        image = docker.image('cofaone/jenkins_hw1:jenkinshw')
+        image = docker.image('cofaone/hw:1)
         image.pull()
         }
        }
