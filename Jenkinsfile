@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "cofaone/jenkins_hw1"
+    registry = "cofaone/jenkins_myapp"
     registryCredential = 'dockerhub'
 }
   
@@ -47,6 +47,14 @@ pipeline {
        }
      }
    }
+   stage('Deploy') {
+         steps{
+            script {
+               docker.withRegistry( '', registryCredential ) {
+                   dockerImage.push()
+               }
+            }
+         }
+      }
   }
-
 }
