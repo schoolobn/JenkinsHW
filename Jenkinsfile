@@ -20,10 +20,10 @@ pipeline {
        }
       } 
     }
-    stage('Clone boxfuse image from github'){
+    stage('Git'){
       steps{
       checkout([$class: 'GitSCM', 
-      branches: [[name: '*/master']], 
+      branches: [[name: '*/test']], 
       doGenerateSubmoduleConfigurations: false, 
       extensions: [[$class: 'RelativeTargetDirectory', 
           relativeTargetDir: 'myapp']], 
@@ -32,6 +32,15 @@ pipeline {
       }
     }
 
+  stage('Build'){
+    steps{
+      sh '''
+        cd myapp
+        mvn package
+        '''
+
+    }
+  }
   }
 
 }
