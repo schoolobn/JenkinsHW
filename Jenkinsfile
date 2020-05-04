@@ -17,7 +17,7 @@ pipeline {
     stage('Clone docker image') {
       steps {
        script {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+        docker.withRegistry( '', registryCredential ) {
         image = docker.image('cofaone/jenkins_hw1:jenkinshw')
         image.pull()
         }
