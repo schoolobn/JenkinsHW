@@ -32,7 +32,7 @@ pipeline {
     stage('Build') {
     steps{
       sh '''
-      cd boxfuse-sample-java-war-hello
+      cd target
       mvn package
       '''
       script {
