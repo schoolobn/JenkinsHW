@@ -32,7 +32,7 @@ pipeline {
     stage('Build') {
     steps{
       sh '''
-      cd target
+      cd /var/lib/jenkins/workspace/New
       mvn package
       '''
       script {
