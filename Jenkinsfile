@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "cofaone/hw"
+    registry = "cofaone/hw1"
     registryCredential = 'dockerhub'
 }
   
