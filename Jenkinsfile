@@ -1,6 +1,10 @@
 pipeline {
+  environment {
+    registry = "cofaone/jenkins_hw1"
+    registryCredential = ‘Dockerhub’
+}
+  
   agent {
-
     docker {
       image 'cofaone/jenkins_hw1:jenkinshw'
       args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
@@ -38,9 +42,11 @@ pipeline {
         cd myapp
         mvn package
         '''
-
-    }
-  }
+      script {
+          docker.build registry + ":$BUILD_NUMBER"
+       }
+     }
+   }
   }
 
 }
