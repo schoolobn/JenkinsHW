@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "cofaone/jenkins_hw1"
+    registry = "cofaone/jenkins_myapp"
     registryCredential = 'dockerhub'
 }
   
@@ -34,9 +34,10 @@ pipeline {
       sh '''
       cd /var/lib/jenkins/workspace/New
       mvn package
-      docker build -t cofaone/jenkins_hw1:jenkinshw .
       '''
-
+      script {
+          docker.build registry + ":$BUILD_NUMBER"
+       }
      }
    }
    stage('Deploy') {
