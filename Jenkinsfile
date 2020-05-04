@@ -1,12 +1,12 @@
 pipeline {
   environment {
-    registry = "cofaone/hw1"
+    registry = "cofaone/tomcathw"
     registryCredential = 'dockerhub'
 }
   
   agent {
     docker {
-      image 'cofaone/hw:1'
+      image 'cofaone/gitmvnhw'
       args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
     }
 
@@ -18,7 +18,7 @@ pipeline {
       steps {
        script {
         docker.withRegistry( '', registryCredential ) {
-        image = docker.image('cofaone/hw:1')
+        image = docker.image('cofaone/gitmvnhw:1')
         image.pull()
         }
        }
