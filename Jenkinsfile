@@ -31,7 +31,10 @@ pipeline {
     }
     stage('Build') {
     steps{
-      sh 'mvn package'
+      sh '''
+      cd boxfuse-sample-java-war-hello
+      mvn package
+      '''
       script {
           docker.build registry + ":$BUILD_NUMBER"
        }
