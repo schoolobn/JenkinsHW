@@ -12,4 +12,4 @@ RUN apt-get install -y git
 # Install docker 18.03
 RUN apt-get -y docker.io
 
-ADD /Dockerfile ADD files/Dockerfile /home/user/
+ADD files/Dockerfile /home/user/
