@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "cofaone/jenkins_myapp"
+    registry = "cofaone/jenkins_hw1"
     registryCredential = 'dockerhub'
 }
   
