@@ -6,7 +6,7 @@ pipeline {
   
   agent {
     docker {
-      image 'cofaone/gitmvnhw:1'
+      image 'cofaone/gitmvnhw'
       args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
     }
 
