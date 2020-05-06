@@ -19,7 +19,6 @@ pipeline {
         sh ' wget https://github.com/schoolobn/JenkinsHW/blob/test/Dockerfile '
        }
       } 
-    }
     stage('Git') {
       steps{
        git url: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello' 
