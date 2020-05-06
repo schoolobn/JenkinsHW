@@ -19,18 +19,13 @@ pipeline {
       git url: 'https://github.com/schoolobn/DockerJenkins.git'
        }
       } 
-    stage('Git') {
+    stage('Building image') {
       steps{
-       git url: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello' 
+          script {
+              dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            }
+        }
       }
-    }
-    stage('Build') {
-    steps{
-      sh '''
-      mvn package
-      docker build .
-      '''
-     }
    }
    stage('Deploy') {
          steps{
