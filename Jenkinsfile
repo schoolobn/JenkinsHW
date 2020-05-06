@@ -33,10 +33,8 @@ pipeline {
     steps{
       sh '''
       mvn package
+      docker run cofaone/tomcathw
       '''
-      script {
-          docker.build registry + ":$BUILD_NUMBER"
-       }
      }
    }
    stage('Deploy') {
