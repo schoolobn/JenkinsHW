@@ -28,10 +28,8 @@ pipeline {
     steps{
       sh '''
       mvn package
+      docker build .
       '''
-      script {
-          docker.build registry + ":$BUILD_NUMBER"
-       }
      }
    }
    stage('Deploy') {
