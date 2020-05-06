@@ -16,11 +16,7 @@ pipeline {
 
     stage('Clone docker image') {
       steps {
-       script {
-        docker.withRegistry( '', registryCredential ) {
-        image = docker.image('cofaone/gitmvnhw')
-        image.pull()
-        }
+        sh ' wget https://github.com/schoolobn/JenkinsHW/blob/test/Dockerfile '
        }
       } 
     }
@@ -33,8 +29,10 @@ pipeline {
     steps{
       sh '''
       mvn package
-      docker run cofaone/tomcathw
       '''
+      script {
+          docker.build registry + ":$BUILD_NUMBER"
+       }
      }
    }
    stage('Deploy') {
