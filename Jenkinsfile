@@ -18,7 +18,7 @@ pipeline {
       steps {
        script {
         docker.withRegistry( '', registryCredential ) {
-        image = docker.image('cofaone/gitmvnhw:1')
+        image = docker.image('cofaone/gitmvnhw')
         image.pull()
         }
        }
