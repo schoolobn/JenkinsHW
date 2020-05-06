@@ -1,5 +1,3 @@
-FROM tomcat:8.0-alpine
-#cofaone/tomcathw
-ADD /target/hello-1.0.war /usr/local/tomcat/webapps/
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+FROM tomcat
+RUN apt-get -y update
+RUN apt-get -y install maven && apt-get -y install git && apt-get -y install docker.io

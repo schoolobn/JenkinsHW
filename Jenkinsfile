@@ -33,7 +33,6 @@ pipeline {
     steps{
       sh '''
       mvn package
-      wget https://github.com/schoolobn/JenkinsHW/blob/test/Dockerfile
       '''
       script {
           docker.build registry + ":$BUILD_NUMBER"
