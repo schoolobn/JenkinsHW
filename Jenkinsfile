@@ -1,13 +1,13 @@
 pipeline {
     environment {
-    registry = "cofaone/tomcathw:latest"
+    registry = "cofaone/tomcathw"
     registryCredential = 'dockerhub'
     dockerImage = ''
   } 
   agent {
     docker {
-      image 'cofaone/gitmvnhw:latest'
-      args '-v /var/run/docker.sock:/var/run/docker.sock'
+      image 'cofaone/gitmvnhw'
+      args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
     }
 
   }
