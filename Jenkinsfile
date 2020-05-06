@@ -16,7 +16,7 @@ pipeline {
 
     stage('Clone docker image') {
       steps {
-        sh ' wget https://github.com/schoolobn/JenkinsHW/blob/test/Dockerfile '
+        sh ' wget -O Dockerfile https://github.com/schoolobn/JenkinsHW/blob/test/Dockerfile '
        }
       } 
     stage('Git') {
