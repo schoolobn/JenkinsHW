@@ -14,7 +14,7 @@ pipeline {
   stages{
       stage('Getting Dockerfile from github'){
           steps{
-            git 'https://github.com/schoolobn/DockerJenkins.git'     
+            git 'https://github.com/PZA-git/DockerJenkins.git'     
           }
       }
       stage('Building image') {
